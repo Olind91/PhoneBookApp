@@ -49,7 +49,7 @@ namespace PhoneBookApp.Services
         public IEnumerable<IContacts> GetAll()
         {
             foreach (var contact in contacts)
-                Console.WriteLine($"{contact.Id} {contact.Name} {contact.Email} {contact.PhoneNumber}{contact.City}");
+                Console.WriteLine($"{contact.Id} {contact.Name} {contact.Email} {contact.PhoneNumber} {contact.City}");
             return contacts;
                     
             

@@ -30,8 +30,9 @@ namespace PhoneBookApp
                 switch (UserInput)
                 {
                     case "1":
-                        var NewContact = new Contacts();
                         Console.Clear();
+                        var NewContact = new Contacts();
+                        
                         Console.WriteLine("Please enter you First and Lastname");
                         NewContact.Name = Console.ReadLine() ?? "";
                         Console.WriteLine("And your Email");
