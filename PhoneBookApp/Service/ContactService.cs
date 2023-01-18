@@ -9,20 +9,16 @@ using System.Threading.Tasks;
 namespace PhoneBookApp.Services
 {
 
-    
     internal class ContactService : IContactService
     {
         private List<Contacts> contacts = new List<Contacts>();
-        
-       
-        
-        public void AddToList(IContacts contact)
-        {                       
-            contacts.Add((Contacts)contact);
-                   
-        }
 
-        
+
+        public void AddToList(IContacts contact)
+        {
+            contacts.Add((Contacts)contact);
+        }                  
+                  
 
         public IContacts Get(Contacts contact)
         {
@@ -35,31 +31,29 @@ namespace PhoneBookApp.Services
                 if (contacts[i].Name == _name)
                 {
                     Console.WriteLine("The contact was found!");
-                    Console.WriteLine(contacts[i].Name);
+                    Console.WriteLine($"Contact name:{ contacts[i].Name} \n Email:{ contacts[i].Email} \n Phonenumber:{ contacts[i].PhoneNumber} \n City:{ contacts[i].City}");
                     NameFound = true;
                 }
             }
-                if (!NameFound)
-                {
-                    Console.WriteLine("404 could not find, did you spell the name correctly?");
-                }
-
-            
+            if (!NameFound)
+            {
+                Console.WriteLine("404 could not find, did you spell the name correctly?");
+            }
             return null!;
-
         }
 
+        
         public IEnumerable<IContacts> GetAll()
         {
             foreach (var contact in contacts)
-                Console.WriteLine($"{contact.Name} {contact.Email} {contact.PhoneNumber} {contact.City}");
+
+                Console.WriteLine($"Contact name:{contact.Name} \n Email:{contact.Email}");
             return contacts;
-                    
-            
         }
 
         public void RemoveFromList(string Name)
         {
+
             var _name = Console.ReadLine();
 
             bool NameFound = false;
@@ -89,8 +83,7 @@ namespace PhoneBookApp.Services
                 Console.WriteLine("404 could not find, did you spell the name correctly?");
             }
 
-
-            
         }
+        
     }
 }

@@ -5,7 +5,7 @@ using System;
 namespace PhoneBookApp.Models
 {
     internal class Contacts : IContacts
-    {
+    {     
         
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
@@ -13,7 +13,5 @@ namespace PhoneBookApp.Models
         public string City { get; set; } = null!;
 
         public string DisplayName => $"{Name}";
-
-
     }
 }

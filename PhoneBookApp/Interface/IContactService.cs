@@ -10,10 +10,7 @@ namespace PhoneBookApp.Interface
 {
     internal interface IContactService
     {
-        void AddToList(IContacts contacts);
-
-
-        
+        void AddToList(IContacts contacts);        
 
         IEnumerable<IContacts> GetAll();
 
