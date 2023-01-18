@@ -34,13 +34,13 @@ namespace PhoneBookApp
                         var NewContact = new Contacts();
                         
                         Console.WriteLine("Please enter you First and Lastname");
-                        NewContact.Name = Console.ReadLine() ?? "";
+                        NewContact.Name = Console.ReadLine();
                         Console.WriteLine("And your Email");
-                        NewContact.Email = Console.ReadLine() ?? "";
+                        NewContact.Email = Console.ReadLine();
                         Console.WriteLine("Almost done, now please fill in your phonenumber");
-                        NewContact.PhoneNumber = Console.ReadLine() ?? "";
+                        NewContact.PhoneNumber = Console.ReadLine();
                         Console.WriteLine("And finally, what city are you living in?");
-                        NewContact.City = Console.ReadLine() ?? "";
+                        NewContact.City = Console.ReadLine();
 
                         contactService.AddToList(NewContact);
 

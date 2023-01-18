@@ -15,7 +15,7 @@ namespace PhoneBookApp.Services
 
         public void AddToList(IContacts contact)
         {
-            contacts.Add((Contacts)contact);
+            contacts.Add((Contacts) contact);
                      
         }
 
@@ -49,7 +49,7 @@ namespace PhoneBookApp.Services
         public IEnumerable<IContacts> GetAll()
         {
             foreach (var contact in contacts)
-                Console.WriteLine($"{contact.Id} {contact.Name} {contact.Email} {contact.PhoneNumber} {contact.City}");
+                Console.WriteLine($"{contact.Name} {contact.Email} {contact.PhoneNumber} {contact.City}");
             return contacts;
                     
             
