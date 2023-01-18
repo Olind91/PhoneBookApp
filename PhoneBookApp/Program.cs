@@ -1,6 +1,7 @@
 ﻿using PhoneBookApp.Models;
 using PhoneBookApp.Services;
 using System;
+using System.ComponentModel.Design;
 
 namespace PhoneBookApp
 {
@@ -8,8 +9,16 @@ namespace PhoneBookApp
     {
         static void Main(string[] args)
         {
+           // var menu = new Menu();            1.26.32 i föreläsning 4.
+           //menu.FilePatch = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json"
 
-            bool isRunning = true;
+            //private FileService file = new FileService();
+
+            //public string FilePath { get; set; } = null!;
+
+
+
+        bool isRunning = true;
             while (isRunning)
             {
                 Console.Clear();
@@ -34,15 +43,22 @@ namespace PhoneBookApp
                         var NewContact = new Contacts();
                         
                         Console.WriteLine("Please enter you First and Lastname");
-                        NewContact.Name = Console.ReadLine();
+                        NewContact.Name = Console.ReadLine() ?? "";
+                        
                         Console.WriteLine("And your Email");
-                        NewContact.Email = Console.ReadLine();
+                        NewContact.Email = Console.ReadLine() ?? "";
+                        
                         Console.WriteLine("Almost done, now please fill in your phonenumber");
-                        NewContact.PhoneNumber = Console.ReadLine();
+                        NewContact.PhoneNumber = Console.ReadLine() ?? "";
+                        
                         Console.WriteLine("And finally, what city are you living in?");
-                        NewContact.City = Console.ReadLine();
+                        NewContact.City = Console.ReadLine() ?? "";
 
                         contactService.AddToList(NewContact);
+
+                        Console.Clear();
+                        Console.WriteLine($"{NewContact.DisplayName}" + " has been added!");
+                        Console.ReadKey();
 
                         break;
 
@@ -88,3 +104,5 @@ namespace PhoneBookApp
         }
     }
 }
+
+

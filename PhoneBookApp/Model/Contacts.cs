@@ -12,6 +12,8 @@ namespace PhoneBookApp.Models
         public string PhoneNumber { get; set; } = null!;
         public string City { get; set; } = null!;
 
+        public string DisplayName => $"{Name}";
+
 
     }
 }

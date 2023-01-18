@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 
 namespace PhoneBookApp.Services
 {
+
+    
     internal class ContactService : IContactService
     {
-        private List<Contacts> contacts = new();
-
-
+        private List<Contacts> contacts = new List<Contacts>();
+        
+       
+        
         public void AddToList(IContacts contact)
-        {
-            contacts.Add((Contacts) contact);
-                     
+        {                       
+            contacts.Add((Contacts)contact);
+                   
         }
 
         

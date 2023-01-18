@@ -14,6 +14,6 @@ namespace PhoneBookApp.Interface
         string PhoneNumber { get; set; }
         string City { get; set; }
 
-
+        public string DisplayName => $"{Name}";
     }
 }
