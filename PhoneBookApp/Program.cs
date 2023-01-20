@@ -1,4 +1,5 @@
-﻿using PhoneBookApp.Models;
+﻿using Newtonsoft.Json;
+using PhoneBookApp.Models;
 using PhoneBookApp.Services;
 using System;
 using System.ComponentModel.Design;
@@ -7,16 +8,11 @@ using System.ComponentModel.Design;
 
 
 
-// var menu = new Menu();            1.26.32 i föreläsning 4.
-//menu.FilePatch = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json"
+var contactService = new ContactService();
+contactService.GetContactsFromJson();
+contactService.FilePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
 
-//private FileService file = new FileService();
-
-//public string FilePath { get; set; } = null!;
-
-    var contactService = new ContactService();
-
-    bool isRunning = true;
+bool isRunning = true;
     while (isRunning)
     {
         Console.Clear();
@@ -27,9 +23,8 @@ using System.ComponentModel.Design;
         Console.WriteLine("4. Remove a contact");
         Console.WriteLine("5. Exit to lobby");
 
-        var UserInput = Console.ReadLine();  
-                
-                             
+        var UserInput = Console.ReadLine();
+       
 
         switch (UserInput)
         {
@@ -51,7 +46,8 @@ using System.ComponentModel.Design;
             NewContact.City = Console.ReadLine() ?? "";
 
             contactService.AddToList(NewContact);
-
+            
+            
             Console.Clear();
             Console.WriteLine($"{NewContact.DisplayName}" + " has been added!");
             Console.ReadKey();
@@ -81,10 +77,9 @@ using System.ComponentModel.Design;
             Console.ReadLine();
 
             break;
-
+            
             case "5":
             return;
-             break;
 
             default:
             Console.WriteLine("Please choose correctly");

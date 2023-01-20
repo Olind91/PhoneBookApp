@@ -1,8 +1,10 @@
-﻿using PhoneBookApp.Interface;
+﻿using Newtonsoft.Json;
+using PhoneBookApp.Interface;
 using PhoneBookApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +13,39 @@ namespace PhoneBookApp.Services
 
     internal class ContactService : IContactService
     {
-        private List<Contacts> contacts = new List<Contacts>();
+        public string FilePath { get; set; } = null!;
+
+        private List<Contacts> contacts = new();
+        
+        public FileService file = new();
+        
+        private readonly FileService fileGet = new();
+
+       
+
+
+
+        public void GetContactsFromJson()
+        {
+            
+            var items = JsonConvert.DeserializeObject<List<Contacts>>(fileGet.Read(FilePath));
+            if (items != null)
+            {
+                contacts = items;
+            }
+            
+            
+        }
+
+
 
 
         public void AddToList(IContacts contact)
         {
             contacts.Add((Contacts)contact);
+            file.Save(FilePath, JsonConvert.SerializeObject( new { contacts }));
         }                  
-                  
+        
 
         public IContacts Get(Contacts contact)
         {
