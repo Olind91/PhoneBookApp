@@ -13,6 +13,7 @@ namespace PhoneBookApp.Services
 
     internal class ContactService : IContactService
     {
+        
         public string FilePath { get; set; } = null!;
 
         private List<Contacts> contacts = new();
@@ -22,28 +23,24 @@ namespace PhoneBookApp.Services
         private readonly FileService fileGet = new();
 
        
-
-
-
         public void GetContactsFromJson()
         {
-            
-            var items = JsonConvert.DeserializeObject<List<Contacts>>(fileGet.Read(FilePath));
-            if (items != null)
+            try
             {
-                contacts = items;
+                var items = JsonConvert.DeserializeObject<List<Contacts>>(fileGet.Read(FilePath));
+                if (items != null)
+                {
+                    contacts = items;
+                }
             }
-            
-            
+            catch { }
+
         }
-
-
-
 
         public void AddToList(IContacts contact)
         {
             contacts.Add((Contacts)contact);
-            file.Save(FilePath, JsonConvert.SerializeObject( new { contacts }));
+            file.Save(FilePath, JsonConvert.SerializeObject( contacts ));
         }                  
         
 
@@ -70,7 +67,8 @@ namespace PhoneBookApp.Services
         }
 
         
-        public IEnumerable<IContacts> GetAll()
+        public IEnumerable<IContacts> GetAll()             
+        
         {
             foreach (var contact in contacts)
 
@@ -97,6 +95,7 @@ namespace PhoneBookApp.Services
                     if (UserInput == "y")
                     {
                         contacts.Remove(contacts[i]);
+                        file.Save(FilePath, JsonConvert.SerializeObject(contacts));
                         Console.WriteLine("The contact has been removed!");
                     }
                     else if (UserInput == "n")

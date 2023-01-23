@@ -9,8 +9,9 @@ using System.ComponentModel.Design;
 
 
 var contactService = new ContactService();
-contactService.GetContactsFromJson();
+
 contactService.FilePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
+contactService.GetContactsFromJson();
 
 bool isRunning = true;
     while (isRunning)
