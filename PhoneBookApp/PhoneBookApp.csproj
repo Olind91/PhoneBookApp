@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="C:\Users\hundmamma\Desktop\CSharpStudies.cs" Link="CSharpStudies.cs" />
+    <Compile Include="C:\Users\hundmamma\Desktop\CSharpStudies\CSharpStudies.cs" Link="CSharpStudies.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
