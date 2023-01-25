@@ -33,9 +33,11 @@ bool isRunning = true;
 
             var NewContact = new Contacts();
             Console.Clear();
-            Console.WriteLine("Please enter you First and Lastname");
-            NewContact.Name = Console.ReadLine() ?? "";
+            Console.WriteLine("Please enter your First name");
+            NewContact.FirstName = Console.ReadLine() ?? "";
 
+            Console.WriteLine("Please enter your Last name");
+            NewContact.LastName = Console.ReadLine() ?? "";
 
             Console.WriteLine("And your Email");
             NewContact.Email = Console.ReadLine() ?? "";

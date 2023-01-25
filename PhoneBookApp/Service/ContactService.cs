@@ -52,10 +52,10 @@ namespace PhoneBookApp.Services
 
             for (int i = 0; i < contacts.Count; i++)
             {
-                if (contacts[i].Name == _name)
+                if (contacts[i].FirstName == _name)
                 {
                     Console.WriteLine("The contact was found!");
-                    Console.WriteLine($"Contact name:{ contacts[i].Name} \n Email:{ contacts[i].Email} \n Phonenumber:{ contacts[i].PhoneNumber} \n City:{ contacts[i].City}");
+                    Console.WriteLine($"Contact name:{ contacts[i].FirstName} {contacts[i].LastName} \n Email:{ contacts[i].Email} \n Phonenumber:{ contacts[i].PhoneNumber} \n City:{ contacts[i].City}");
                     NameFound = true;
                 }
             }
@@ -72,7 +72,7 @@ namespace PhoneBookApp.Services
         {
             foreach (var contact in contacts)
 
-                Console.WriteLine($"Contact name:{contact.Name} \n Email:{contact.Email}");
+                Console.WriteLine($"Contact name:{contact.FirstName} {contact.LastName} \n Email:{contact.Email}");
             return contacts;
         }
 
@@ -85,9 +85,9 @@ namespace PhoneBookApp.Services
 
             for (int i = 0; i < contacts.Count; i++)
             {
-                if (contacts[i].Name == _name)
+                if (contacts[i].FirstName == _name)
                 {
-                    Console.WriteLine(contacts[i].Name);
+                    Console.WriteLine(contacts[i].FirstName + contacts[i].LastName);
                     NameFound = true;
                     Console.WriteLine("The contact was found, are you sure you want to remove it? (y/n)");
 

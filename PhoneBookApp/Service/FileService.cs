@@ -11,8 +11,8 @@ namespace PhoneBookApp.Services
 {
     internal class FileService
     {
-        
 
+        public string FilePath { get; set; } = null!;
         public void Save(string filePath, string content)
         {
             using var sw = new StreamWriter(filePath);

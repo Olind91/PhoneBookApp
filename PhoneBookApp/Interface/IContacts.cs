@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace PhoneBookApp.Interface
 {
     internal interface IContacts
-    {     
-             
-        string Name { get; set; }
+    {
+        string FirstName { get; set; }
+        string LastName { get; set; }
         string Email { get; set; }
         string PhoneNumber { get; set; }
         string City { get; set; }
         
-        public string DisplayName => $"{Name}";
+        public string DisplayName => $"{FirstName} {LastName}";
 
 
 
