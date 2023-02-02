@@ -9,11 +9,11 @@ using Newtonsoft.Json;
 
 namespace PhoneBookApp.Services
 {
-    internal class FileService
+    public class FileService
     {
 
         public string FilePath { get; set; } = null!;
-        public void Save(string filePath, string content)
+        public void Save(string filePath, string content )
         {
             using var sw = new StreamWriter(filePath);
             sw.WriteLine(content);
