@@ -52,9 +52,6 @@ namespace WpfApp1
         }
 
 
-
-
-
         private void Btn_Add_Click(object sender, RoutedEventArgs e)
         {
             contacts.Add(new Contacts

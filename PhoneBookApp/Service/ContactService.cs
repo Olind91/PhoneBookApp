@@ -47,6 +47,7 @@ namespace PhoneBookApp.Services
         public IContacts Get(Contacts contact)
         {
             var _name = Console.ReadLine();
+            Console.Clear();
 
             bool NameFound = false;
 
@@ -55,7 +56,7 @@ namespace PhoneBookApp.Services
                 if (contacts[i].FirstName == _name)
                 {
                     Console.WriteLine("The contact was found!");
-                    Console.WriteLine($"Contact name:{ contacts[i].FirstName} {contacts[i].LastName} \n Email:{ contacts[i].Email} \n Phonenumber:{ contacts[i].PhoneNumber} \n City:{ contacts[i].City}");
+                    Console.WriteLine($"Contact name: { contacts[i].FirstName} {contacts[i].LastName} \nEmail: { contacts[i].Email} \nPhonenumber: { contacts[i].PhoneNumber} \nCity: { contacts[i].City}");
                     NameFound = true;
                 }
             }
@@ -72,7 +73,7 @@ namespace PhoneBookApp.Services
         {
             foreach (var contact in contacts)
 
-                Console.WriteLine($"Contact name:{contact.FirstName} {contact.LastName} \n Email:{contact.Email}");
+                Console.WriteLine($"Contact name:{contact.FirstName} {contact.LastName} \nEmail:{contact.Email}");
             return contacts;
         }
 
@@ -80,6 +81,7 @@ namespace PhoneBookApp.Services
         {
 
             var _name = Console.ReadLine();
+            
 
             bool NameFound = false;
 
